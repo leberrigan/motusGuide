@@ -50,7 +50,7 @@ This guide was designed to help both researchers and public users access data av
 Before you can create a new project or join an existing project, you must first create a user. This can be done by selecting **Register** at the top right of any page on the Motus website. You will also be given the option to register a user any time you try to access a page under 'Manage Data'. [Click here to register a new user](https://motus.org/data/user/new)
  
  
-![](register_1.png)
+![](images/register_1.png)
 
 
 When creating a new user you will have the option to be a **Collaborator** or **Principal Investigator**. Any user requesting to be a **Principal Investigator** will require authentication by Motus staff. An email will automatically be sent to Motus staff upon registration for authentication.
@@ -119,19 +119,19 @@ Clicking on the project will bring you to a new page with more information about
 
 You may view a map of receiver locations by navigating to *[Explore Data > Receiver Locations](https://motus.org/data/receiversMap)*. 
 
-![](receiverLocations_1.png)
+![](images/receiverLocations_1.png)
   
 ***
 
 The interactive map can be viewed in full screen by clicking the button 'View in whole window'.
 
-![](receiverLocations_2.png)
+![](images/receiverLocations_2.png)
 
 ***
 
 Only currently active deployments are displayed by default. This can be changed by moving the date slider located above the map.
 
-![](receiverLocations_3.png)
+![](images/receiverLocations_3.png)
   
 ***
 
@@ -147,19 +147,19 @@ Select the checkbox on the left-hand side of the screen to display the estimated
 <span>Note:</span>
 These ranges are purely theoretical and do not take into account landscape features or weather.</div>
 
-![](receiverLocations_5.png)
+![](images/receiverLocations_5.png)
   
 ***
 
 Finally, receivers can be filtered by frequency by selecting an option from the dropdown menu at the top-centre of the screen.
 
-![](receiverLocations_6.png)  
+![](images/receiverLocations_6.png)  
   
 ***
 
 Clicking on a receiver will give you a list of properties for that receiver. This includes all tags detected during that receiver deployment. You may view tags in a [table](#ch224) or a [timeline](#ch225).
 
-![](receiverLocations_8.png)  
+![](images/receiverLocations_8.png)  
   
 ***
 
@@ -168,13 +168,13 @@ Clicking on a receiver will give you a list of properties for that receiver. Thi
 
 A list of all receiver deployments is available for download at *[Explore Data > Download Data](https://motus.org/data/downloads)* under **Receiver Deployments**. You can also view all receivers and the associated deployments for a given project by going to *[Explore Data > Projects](https://motus.org/data/projects)* and clicking on the 'Receivers' column of the project of choice.
 
-![](receiverDeployments_1.png)
+![](images/receiverDeployments_1.png)
 
 ***
 
 This will bring you to a table of all receiver deployments, both active an inactive ('terminated'). The **tags** column includes a link to a table of all tag detected during each receiver deployment.
 
-![](receiverDeployments_3.png)
+![](images/receiverDeployments_3.png)
 
 ***
 
@@ -193,7 +193,7 @@ You can explore tags detected during a given receiver deployment by selecting it
 
 You can view a table of tags detected during a given receiver deployment. This is a summary table of tags, with a row for every day each tag was detected. You can view more information about an individual tag deployment by clicking one of rows of the table. 
 
-![](receiverTagsTable_1.png)
+![](images/receiverTagsTable_1.png)
 
 ***
 
@@ -212,7 +212,7 @@ You can view a timeline of tag detections for a given receiver deployment. The t
 
 This timeline only shows data for a single calendar year at a time - you can select which year to display by clicking on one of the links located above the timeline.
 
-![](receiverPublicTimeline_2.png)
+![](images/receiverPublicTimeline_2.png)
 
 ***  
 
@@ -234,7 +234,7 @@ You can explore tags by project or receiver. To view tags for a specific project
 
 To explore tags by receiver, navigate to the receiver of your choice (see *[Explore Receviers](#ch22)*) and click on the links for either **table** or **timeline**. A tag 
 
-![](tagDeployments_1.png)
+![](images/tagDeployments_1.png)
 
 #### 2.3.1 Registered Tags {#ch231}
 
@@ -268,7 +268,7 @@ We try to keep a list of all current publications that use or reference Motus. Y
 
 <a href="#top" style='float:right;font-size:12pt;margin-top:-24pt;'>Back to top</a>
 
-![](manageData_1.png)
+![](images/manageData_1.png)
 
 It is essential that users maintain accurate and up-to-date metadata. Failure to do so may result in a number of issues that can go unnoticed for long periods of time. Your project's metadata is not only important for yourself, but for every other project that may use your equipment. For instance, a receiver with inaccurate antenna directions may provide false information on departure direction. Another common mistake is to not supply tag deployment dates until a long time after deployment which may result in missed detections.
 
