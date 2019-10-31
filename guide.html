@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Lucas Berrigan" />
@@ -20,6 +21,9 @@
 <script src="guide_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="guide_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="guide_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="guide_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="guide_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="guide_files/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="guide_files/navigation-1.1/tabsets.js"></script>
 <link href="guide_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="guide_files/highlightjs-9.12.0/highlight.js"></script>
@@ -70,9 +74,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -103,8 +105,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -162,20 +162,84 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -185,40 +249,11 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Motus Guide</h1>
-<h4 class="author"><em>Lucas Berrigan</em></h4>
-<h4 class="date"><em>15 July, 2019</em></h4>
+<h4 class="author">Lucas Berrigan</h4>
+<h4 class="date">31 October, 2019</h4>
 
 </div>
 
-<div id="TOC">
-<ul>
-<li><a href="#motus-guidebook">Motus Guidebook</a><ul>
-<li><a href="#introduction">1 Getting Started</a><ul>
-<li><a href="#ch11">1.1 Registering a new user</a></li>
-<li><a href="#how-data-is-organised">1.2 How data is organised</a></li>
-</ul></li>
-<li><a href="#explore">2 Exploring Data</a><ul>
-<li><a href="#ch21">2.1 Projects</a></li>
-<li><a href="#ch22">2.2 Receivers</a></li>
-<li><a href="#ch23">2.3 Tags</a></li>
-<li><a href="#ch24">2.4 Species List</a></li>
-<li><a href="#ch25">2.5 Field Descriptions</a></li>
-<li><a href="#ch26">2.6 Publications</a></li>
-</ul></li>
-<li><a href="#manage">3 Managing Data</a><ul>
-<li><a href="#ch31">3.1 Create a project</a></li>
-<li><a href="#ch31">3.2 Manage Project</a></li>
-<li><a href="#manage-tags">3.4 Manage Tags</a></li>
-</ul></li>
-<li><a href="#troubleshoot">4 Troubleshooting Data</a><ul>
-<li><a href="#missing-data">4.1 Missing Data</a></li>
-</ul></li>
-<li><a href="#appendices">5 Appendices</a><ul>
-<li><a href="#appendix-a-tag-description-of-tag-metadata-variables">Appendix A: Tag description of tag metadata variables</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
 
 <style type="text/css">
 
@@ -240,7 +275,7 @@ $(document).ready(function () {
 </style>
 <div id="motus-guidebook" class="section level1">
 <h1>Motus Guidebook</h1>
-<p>This guide was designed to help both researchers and public users access data available on Motus.org. It will be split into four distinct sections:</p>
+<p>This guide was designed to help both researchers and public collaborators access data available on Motus.org. It will be split into four distinct sections:</p>
 <ol style="list-style-type: decimal">
 <li><a href="#introduction">Getting Started</a></li>
 <li><a href="#explore">Exploring Data</a></li>
@@ -281,10 +316,10 @@ $(document).ready(function () {
 <h2>2 Exploring Data</h2>
 <p><a href="#top" style='float:right;font-size:12pt;margin-top:-24pt;'>Back to top</a></p>
 <div class="figure">
-<img src="exploreData_1.png" />
+<img src="images/exploreData_1.png" />
 
 </div>
-<p>We provide a public interface for users to explore data available in the Motus Network. This interface allows users to view information about individual receivers, tags, and projects in the form of data summaries. To prevent your data from being publically accessible, you must set your project to private. See <a href="#ch311">Chapter 3.1.1</a> for information on how to change your project’s privacy settings.</p>
+<p>We provide a public interface for collaborators to explore data available in the Motus Network. This interface allows collaborators to view information about individual receivers, tags, and projects in the form of data summaries. To prevent your data from being publically accessible, you must set your project to private. See <a href="#ch311">Chapter 3.1.1</a> for information on how to change your project’s privacy settings.</p>
 <p>There are several datasets publically available on the web interface and downloadable as a CSV file (comma-separated variable).</p>
 <ul>
 <li><a href="#ch21">Projects</a></li>
@@ -340,7 +375,7 @@ $(document).ready(function () {
 <hr />
 <p>The resolution of the date slider can be changed by selecting an option from the dropdown menu on the right-hand side of the screen.</p>
 <div class="figure">
-<img src="receiverLocations_4.png" />
+<img src="images/receiverLocations_6.png" />
 
 </div>
 <hr />
@@ -349,13 +384,13 @@ $(document).ready(function () {
 <span>Note:</span> These ranges are purely theoretical and do not take into account landscape features or weather.
 </div>
 <div class="figure">
-<img src="images/receiverLocations_5.png" />
+<img src="images/receiverLocations_4.png" />
 
 </div>
 <hr />
 <p>Finally, receivers can be filtered by frequency by selecting an option from the dropdown menu at the top-centre of the screen.</p>
 <div class="figure">
-<img src="images/receiverLocations_6.png" />
+<img src="images/receiverLocations_5.png" />
 
 </div>
 <hr />
@@ -426,7 +461,7 @@ $(document).ready(function () {
 </div>
 <div id="ch23" class="section level3">
 <h3>2.3 Tags</h3>
-<p>Tags are the radio transmitters that are affixed to animals for tracking. These tags emit a coded ‘burst’ of radio pulses that encode a unique ID for that tag. There are a limited number of unique IDs that can be produced, however, making it necessary to find other way to expand the number of uniquely identifyable tags. This is done by also calculating the length of time between each coded burst, called the <strong>burst interval</strong>. By combining the burst interval with the encoded ID of the tag, the number of uniquely identifyable tags is theoretically unlimited. But in practice, the burst interval is limited by the precision of measurement and accuracy of the tag. In addition, it is impractical to have tags with very long burst intervals since this will reduce the number of detections and makes manual tracking nearly impossible. For this reason, there are many cases of tags with identical properties, but we take care to ensure these tags are not deployed in the same region or at the same time.</p>
+<p>Tags are the radio transmitters that are affixed to animals for tracking. These tags emit a coded ‘burst’ of radio pulses that encode a unique ID for that tag. There are a limited number of unique IDs that can be produced, however, making it necessary to find other way to expand the number of uniquely identifyable tags. This is done by also calculating the length of time between each coded burst, called the <strong>burst interval</strong>. Only prime numbers are used as burst intervals to eliminate the possibility of one interval resembling another, which limits the number of unique tags to just over 36,000. However, tags with longer burst intervals are more difficult to track manually and are less likely to be detected during a fly-by, so most researchers opt for lower interval lengths. For this reason, Lotek has had to reproduce some tags to keep up with the demand. This makes it extremely important to ensure no two identical tags are deployed at the same time. This is another reason why it is essential that collaborators report when tags are being used.</p>
 <p>You can explore tags by project or receiver. To view tags for a specific project, go to <em><a href="https://motus.org/data/projects">Explore Data &gt; Projects</a></em> and click on the <strong>Tags</strong> column for the project you wish to explore.</p>
 <p>To explore tags by receiver, navigate to the receiver of your choice (see <em><a href="#ch22">Explore Receviers</a></em>) and click on the links for either <strong>table</strong> or <strong>timeline</strong>. A tag</p>
 <div class="figure">
@@ -467,7 +502,7 @@ $(document).ready(function () {
 <img src="images/manageData_1.png" />
 
 </div>
-<p>It is essential that users maintain accurate and up-to-date metadata. Failure to do so may result in a number of issues that can go unnoticed for long periods of time. Your project’s metadata is not only important for yourself, but for every other project that may use your equipment. For instance, a receiver with inaccurate antenna directions may provide false information on departure direction. Another common mistake is to not supply tag deployment dates until a long time after deployment which may result in missed detections.</p>
+<p>It is essential that collaborators maintain accurate and up-to-date metadata. Failure to do so may result in a number of issues that can go unnoticed for long periods of time. Your project’s metadata is not only important for yourself, but for every other project that may use your equipment. For instance, a receiver with inaccurate antenna directions may provide false information on departure direction. Another common mistake is to not supply tag deployment dates until a long time after deployment which may result in missed detections.</p>
 <p>In order to prevent mistakes and misinformation, it is important to follow these steps to ensure all your metadata is accurate and up-to-date.</p>
 <p>Information will be organised as it appears on the Motus website.</p>
 <div id="ch31" class="section level3">
@@ -512,14 +547,14 @@ $(document).ready(function () {
 <h4>3.2.1 Project Data Availability</h4>
 <p>To set what data is publically available, go to <a href="https://motus.org/data/project/edit">Manage Data</a> and under <strong>Data Availablity</strong> change the settings according to your preferences.</p>
 <div class="note">
-<span>Note:</span> This is especially important for users who wish to conceal the location of tags and tag detections for rare species or when landowners do not want to have their location publically available.
+<span>Note:</span> This is especially important for collaborators who wish to conceal the location of tags and tag detections for rare species or when landowners do not want to have their location publically available.
 </div>
 </div>
 </div>
 <div id="manage-tags" class="section level3">
 <h3>3.4 Manage Tags</h3>
 <p>It is important to register tags prior to deploying them since there can be issues with registration that prevent us from being able to sort out tag detections, but also because our tag finder algorithm needs a search pattern to look for when going through detection data.</p>
-<p>Tag finder only searches for tags that are included in its master tag list which is just a huge list of registered tags. Importantly, this table contains deployment dates for when tag finder can should be finding tags. If any tag detections occur outside of these dates they will not be added to the database. If the user has not set a deployment start date, the date of registration is used. If the user has not entered an end date, the deployment start date plus the estimated tag lifespan is used.</p>
+<p>Tag finder only searches for tags that are included in its master tag list which is just a huge list of registered tags. Importantly, this table contains deployment dates for when tag finder can should be finding tags. If any tag detections occur outside of these dates they will not be added to the database. If the collaborator has not set a deployment start date, the date of registration is used. If the collaborator has not entered an end date, the deployment start date plus the estimated tag lifespan is used.</p>
 <p>This is all in place for a couple of reasons. Tag finder would be impractically slow if it was looking for all possible tags all the time, so we need to give it something more specific to look for by providing it with a list of plausible tags. In addition, Lotek may need to reproduce some tags in the future with the same specifications as other tags that were deployed in previous years so they need to know whether that tag is inactive or not.</p>
 <p>We stress that you need to have all tags registered prior to deployment and once they are deployed metadata should be entered as soon as possible. We have included the option of including a default deployment date with your registrations, which can make it less urgent to add in metadata once tags are deployed but does not eliminate this need entirely. This is especially problematic if tags are deployed months after the default deployment date.</p>
 
@@ -579,6 +614,8 @@ $(document).ready(function () {
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -593,6 +630,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

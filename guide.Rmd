@@ -2,10 +2,15 @@
 title: "Motus Guide"
 author: "Lucas Berrigan"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-output: 
+output:
+  word_document:
+    toc: yes
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
-    self_contained: false
+    self_contained: no
+    toc: yes
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -34,7 +39,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 # Motus Guidebook
 
-This guide was designed to help both researchers and public users access data available on Motus.org. It will be split into four distinct sections:
+This guide was designed to help both researchers and public collaborators access data available on Motus.org. It will be split into four distinct sections:
 
 1. [Getting Started](#introduction)
 2. [Exploring Data](#explore)
@@ -77,9 +82,9 @@ Data will often be displayed by receiver serial number (e.g.: *Lotek-6325*, or; 
 
 <a href="#top" style='float:right;font-size:12pt;margin-top:-24pt;'>Back to top</a>
 
-![](exploreData_1.png)
+![](images/exploreData_1.png)
 
-We provide a public interface for users to explore data available in the Motus Network. This interface allows users to view information about individual receivers, tags, and projects in the form of data summaries. To prevent your data from being publically accessible, you must set your project to private. See [Chapter 3.1.1](#ch311) for information on how to change your project's privacy settings.
+We provide a public interface for collaborators to explore data available in the Motus Network. This interface allows collaborators to view information about individual receivers, tags, and projects in the form of data summaries. To prevent your data from being publically accessible, you must set your project to private. See [Chapter 3.1.1](#ch311) for information on how to change your project's privacy settings.
 
 There are several datasets publically available on the web interface and downloadable as a CSV file (comma-separated variable).
 
@@ -137,7 +142,7 @@ Only currently active deployments are displayed by default. This can be changed 
 
 The resolution of the date slider can be changed by selecting an option from the dropdown menu on the right-hand side of the screen.
 
-![](receiverLocations_4.png)
+![](images/receiverLocations_6.png)
   
 ***
 
@@ -147,13 +152,13 @@ Select the checkbox on the left-hand side of the screen to display the estimated
 <span>Note:</span>
 These ranges are purely theoretical and do not take into account landscape features or weather.</div>
 
-![](images/receiverLocations_5.png)
+![](images/receiverLocations_4.png)
   
 ***
 
 Finally, receivers can be filtered by frequency by selecting an option from the dropdown menu at the top-centre of the screen.
 
-![](images/receiverLocations_6.png)  
+![](images/receiverLocations_5.png)  
   
 ***
 
@@ -206,7 +211,7 @@ These data are filtered to reduce the number of false positives appearing in the
 
 You can view a timeline of tag detections for a given receiver deployment. The timeline has the time of day on the X-axis and date on the Y-axis. Different coloured bars on the plot represent detections of individual tags. Hovering the mouse over the coloured bars will display information about that tag. There is also a list of all tags located below the timeline. 
 
-![](receiverPublicTimeline_3.png) 
+![](images/receiverPublicTimeline_3.png) 
 
 ***  
 
@@ -228,7 +233,7 @@ You can view a table of tags detected during a given receiver deployment. This i
 
 ### 2.3 Tags {#ch23}
 
-Tags are the radio transmitters that are affixed to animals for tracking. These tags emit a coded 'burst' of radio pulses that encode a unique ID for that tag. There are a limited number of unique IDs that can be produced, however, making it necessary to find other way to expand the number of uniquely identifyable tags. This is done by also calculating the length of time between each coded burst, called the **burst interval**. By combining the burst interval with the encoded ID of the tag, the number of uniquely identifyable tags is theoretically unlimited. But in practice, the burst interval is limited by the precision of measurement and accuracy of the tag. In addition, it is impractical to have tags with very long burst intervals since this will reduce the number of detections and makes manual tracking nearly impossible. For this reason, there are many cases of tags with identical properties, but we take care to ensure these tags are not deployed in the same region or at the same time.
+Tags are the radio transmitters that are affixed to animals for tracking. These tags emit a coded 'burst' of radio pulses that encode a unique ID for that tag. There are a limited number of unique IDs that can be produced, however, making it necessary to find other way to expand the number of uniquely identifyable tags. This is done by also calculating the length of time between each coded burst, called the **burst interval**. Only prime numbers are used as burst intervals to eliminate the possibility of one interval resembling another, which limits the number of unique tags to just over 36,000. However, tags with longer burst intervals are more difficult to track manually and are less likely to be detected during a  fly-by, so most researchers opt for lower interval lengths. For this reason, Lotek has had to reproduce some tags to keep up with the demand. This makes it extremely important to ensure no two identical tags are deployed at the same time. This is another reason why it is essential that collaborators report when tags are being used. 
 
 You can explore tags by project or receiver. To view tags for a specific project, go to *[Explore Data > Projects](https://motus.org/data/projects)* and click on the **Tags** column for the project you wish to explore. 
 
@@ -270,7 +275,7 @@ We try to keep a list of all current publications that use or reference Motus. Y
 
 ![](images/manageData_1.png)
 
-It is essential that users maintain accurate and up-to-date metadata. Failure to do so may result in a number of issues that can go unnoticed for long periods of time. Your project's metadata is not only important for yourself, but for every other project that may use your equipment. For instance, a receiver with inaccurate antenna directions may provide false information on departure direction. Another common mistake is to not supply tag deployment dates until a long time after deployment which may result in missed detections.
+It is essential that collaborators maintain accurate and up-to-date metadata. Failure to do so may result in a number of issues that can go unnoticed for long periods of time. Your project's metadata is not only important for yourself, but for every other project that may use your equipment. For instance, a receiver with inaccurate antenna directions may provide false information on departure direction. Another common mistake is to not supply tag deployment dates until a long time after deployment which may result in missed detections.
 
 In order to prevent mistakes and misinformation, it is important to follow these steps to ensure all your metadata is accurate and up-to-date.
 
@@ -299,13 +304,13 @@ To set what data is publically available, go to [Manage Data](https://motus.org/
 
 <div class='note'>
 <span>Note:</span> 
-This is especially important for users who wish to conceal the location of tags and tag detections for rare species or when landowners do not want to have their location publically available.</div>
+This is especially important for collaborators who wish to conceal the location of tags and tag detections for rare species or when landowners do not want to have their location publically available.</div>
 
 ### 3.4  Manage Tags
 
 It is important to register tags prior to deploying them since there can be issues with registration that prevent us from being able to sort out tag detections, but also because our tag finder algorithm needs a search pattern to look for when going through detection data.       
 
-Tag finder only searches for tags that are included in its master tag list which is just a huge list of registered tags. Importantly, this table contains deployment dates for when tag finder can should be finding tags. If any tag detections occur outside of these dates they will not be added to the database. If the user has not set a deployment start date, the date of registration is used. If the user has not entered an end date, the deployment start date plus the estimated tag lifespan is used.     
+Tag finder only searches for tags that are included in its master tag list which is just a huge list of registered tags. Importantly, this table contains deployment dates for when tag finder can should be finding tags. If any tag detections occur outside of these dates they will not be added to the database. If the collaborator has not set a deployment start date, the date of registration is used. If the collaborator has not entered an end date, the deployment start date plus the estimated tag lifespan is used.     
 
 This is all in place for a couple of reasons. Tag finder would be impractically slow if it was looking for all possible tags all the time, so we need to give it something more specific to look for by providing it with a list of plausible tags. In addition, Lotek may need to reproduce some tags in the future with the same specifications as other tags that were deployed in previous years so they need to know whether that tag is inactive or not.     
 
